@@ -1910,29 +1910,92 @@ class Data extends Base {
 		
 			
 		if ($type == 'p-amphur') {
-			$this->render('data/enrolment/p-amphur', $this);
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/enrolment/p-amphur', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/enrolment/p-amphur', $this);
+			}
+			//$this->render('data/enrolment/p-amphur', $this);
 
 		} else if ($type == 'p-district') {
-			$this->render('data/enrolment/p-district', $this);
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/enrolment/p-district', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/enrolment/p-district', $this);
+			}
+			//$this->render('data/enrolment/p-district', $this);
 
 		} else if ($type == 'p-school') {
-			$this->render('data/enrolment/p-school', $this);
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/enrolment/p-school', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/enrolment/p-school', $this);
+			}
+			//$this->render('data/enrolment/p-school', $this);
 
 		} else if ($type == 'm1-amphur') {
-			$this->render('data/enrolment/m1-amphur', $this);
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/enrolment/m1-amphur', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/enrolment/m1-amphur', $this);
+			}
+			//$this->render('data/enrolment/m1-amphur', $this);
 
 		} else if ($type == 'm1-district') {
-			$this->render('data/enrolment/m1-district', $this);
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/enrolment/m1-district', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/enrolment/m1-district', $this);
+			}
+			//$this->render('data/enrolment/m1-district', $this);
 
 		} else if ($type == 'm1-school') {
-			$this->render('data/enrolment/m1-school', $this);
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/enrolment/m1-school', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/enrolment/m1-school', $this);
+			}
+			//$this->render('data/enrolment/m1-school', $this);
 
 		} else if ($type == 'm4-amphur') {
-			$this->render('data/enrolment/m4-amphur', $this);
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/enrolment/m4-amphur', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/enrolment/m4-amphur', $this);
+			}
+			//$this->render('data/enrolment/m4-amphur', $this);
 		} else if ($type == 'm4-district') {
-			$this->render('data/enrolment/m4-district', $this);
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/enrolment/m4-district', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/enrolment/m4-district', $this);
+			}
+			//$this->render('data/enrolment/m4-district', $this);
 		} else if ($type == 'm4-school') {
-			$this->render('data/enrolment/m4-school', $this);
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/enrolment/m4-school', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/enrolment/m4-school', $this);
+			}
+			//$this->render('data/enrolment/m4-school', $this);
 		}
 	}
 

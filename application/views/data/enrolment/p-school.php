@@ -9,7 +9,11 @@
 
 			<div class='col-md-12'>
 				<div class="panel panel-default">
-				  <div class="panel-heading"> ตารางแสดงอัตราการรับนักเรียนระดับประถมศึกษา (Enrolment Rate) ในแต่ละสถานศึกษา</div>
+				  <div class="panel-heading"> ตารางแสดงอัตราการรับนักเรียนระดับประถมศึกษา (Enrolment Rate) ในแต่ละสถานศึกษา
+				  <div class="pull-right">
+							<a href="<?php echo current_url();?>?export=pdf" target="_blank" class="btn btn-sm btn-info"><i class="fa fa-file-pdf-o"></i></a>
+						</div>  
+				</div>
 				  <div class="panel-body">
 
 				  	
