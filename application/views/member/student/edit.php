@@ -165,6 +165,9 @@
 
 							<p class="col-md-12"><strong>ข้อมูลส่วนตัว</strong></p>
 
+
+							
+
 							<div class="form-group col-md-6">
 								<label for="blood">หมู่โลหิต</label>
 								<input type="text" class="form-control" name="blood" value="<?php echo $r->blood;?>"  placeholder="">
@@ -515,6 +518,16 @@
 
 									
 								</div>
+							</div>
+
+							<div class="form-group col-md-12">
+								<label for="religion">ความพิการ</label>
+							    <select name="did" class="form-control" id="">
+									<option value="0">ปกติ</option>
+									<?php foreach($disabled as $ds):?>
+										<option value="<?php echo $ds->did;?>" <?php echo $r->did == $ds->did ? 'selected' : '';?>><?php echo $ds->dname;?></option>
+									<?php endforeach;?>
+								</select>
 							</div>
 
 							<div class="form-group col-md-6">

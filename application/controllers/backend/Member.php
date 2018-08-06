@@ -68,7 +68,7 @@ class Member extends Backend {
 
 
 		if (isAdminProvince()) {
-			
+			//echo 'admin province';
 			$type = '';
 			if ($w == '') {
 				$type = '  ';
@@ -77,13 +77,16 @@ class Member extends Backend {
 
 			}
 
-			$query = $type." OR ( member.config_id = '".$this->config_id."' AND (status = 'admin_province' OR status = 'admin_area' OR status ='staff' OR status = 'member'))";
+			//$query = $type." AND ( member.config_id = '".$this->config_id."' AND (status = 'admin_province' OR status = 'admin_area' OR status ='staff' OR status = 'member'))";
 			//$this->db->where($query, NULL);
+
+			//echo $query;
+			$query = $type.=" AND member.config_id = '".$this->config_id."' AND ( status = 'admin_province' OR status = 'admin_area' OR status = 'staff' and status = 'member')";
 			$w.= $query;
 		}
 
 		if (isAdminArea()) {
-
+			//echo 'admin area';
 			$type = '';
 			if ($w == '') {
 
@@ -94,9 +97,9 @@ class Member extends Backend {
 			}
 
 
-			$query = $type." OR ( member.area_type_id = '".$this->area_type_id."' AND (status ='staff' OR status = 'member'))";
+			//$query = $type." OR ( member.area_type_id = '".$this->area_type_id."' AND (status ='staff' OR status = 'member'))";
 			//$this->db->where($query, NULL);
-
+			$query = $type.=" AND member.area_type_id = '".$this->area_type_id."' AND (status = 'staff' OR status = 'member')";
 			$w.= $query;
 		}
 

@@ -757,7 +757,7 @@ class Member extends Base_Member {
 		$this->years = $this->db->get('years')->result();
 		$this->room_level = $this->db->where('rmid <=', 12)->get('room_level')->result();
 		//$this->area = $this->db->where('province_id', $this->province_id)->get('area_type')->result();
-
+		$this->disabled = $this->db->get('disabled')->result();
 		$this->_term = '01';
 		$this->_year = '2017';
 		
@@ -780,6 +780,7 @@ class Member extends Base_Member {
 		$this->years = $this->db->get('years')->result();
 		$this->room_level = $this->db->where('rmid <=', 12)->get('room_level')->result();
 		$this->area = $this->db->where('province_id', $this->province_id)->get('area_type')->result();
+		$this->disabled = $this->db->get('disabled')->result();
 		$this->render('member/student/edit', $this);
 	}
 
@@ -901,6 +902,7 @@ class Member extends Base_Member {
 				'lose_class' => $this->input->post('lose_class'),
 				'lose_food' => $this->input->post('lose_food'),
 				'disabled' => $this->input->post('disabled'),
+				'did' => $this->input->post('did'),
 				'gravel_road' => $this->input->post('gravel_road'),
 				'paved_road' => $this->input->post('paved_road'),
 				'home_water' => $this->input->post('home_water'),
@@ -1087,6 +1089,7 @@ class Member extends Base_Member {
 				'lose_class' => $this->input->post('lose_class'),
 				'lose_food' => $this->input->post('lose_food'),
 				'disabled' => $this->input->post('disabled'),
+				'did' => $this->input->post('did'),
 				'gravel_road' => $this->input->post('gravel_road'),
 				'paved_road' => $this->input->post('paved_road'),
 				'home_water' => $this->input->post('home_water'),
