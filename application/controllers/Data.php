@@ -1798,26 +1798,107 @@ class Data extends Base {
 		
 			
 		if ($type == 'p6-amphur') {
-			$this->render('data/study/p6-amphur', $this);
+			
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/study/p6-amphur', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/study/p6-amphur', $this);
+			}
+
+			//$this->render('data/study/p6-amphur', $this);
 
 		} else if ($type == 'p6-district') {
-			$this->render('data/study/p6-district', $this);
+			
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/study/p6-district', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/study/p6-district', $this);
+			}
+
+			//$this->render('data/study/p6-district', $this);
 
 		} else if ($type == 'p6-school') {
-			$this->render('data/study/p6-school', $this);
+			
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/study/p6-school', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/study/p6-school', $this);
+			}
+
+			//$this->render('data/study/p6-school', $this);
 
 		} else if ($type == 'a1-amphur') {
-			$this->render('data/study/a1-amphur', $this);
+			
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/study/a1-amphur', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/study/a1-amphur', $this);
+			}
+
+			//$this->render('data/study/a1-amphur', $this);
 		} else if ($type == 'a1-district') {
-			$this->render('data/study/a1-district', $this);
+			
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/study/a1-district', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/study/a1-district', $this);
+			}
+
+			//$this->render('data/study/a1-district', $this);
 		} else if ($type == 'a1-school') {
-			$this->render('data/study/a1-school', $this);
+			
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/study/a1-school', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/study/a1-school', $this);
+			}
+
+			//$this->render('data/study/a1-school', $this);
 		} else if ($type == 'm3-amphur') {
-			$this->render('data/study/m3-amphur', $this);
+			
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/study/m3-amphur', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/study/m3-amphur', $this);
+			}
+
+			//$this->render('data/study/m3-amphur', $this);
 		} else if ($type == 'm3-district') {
-			$this->render('data/study/m3-district', $this);
+			
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/study/m3-district', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/study/m3-district', $this);
+			}
+
+			//$this->render('data/study/m3-district', $this);
 		} else if ($type == 'm3-school') {
-			$this->render('data/study/m3-school', $this);
+			
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/study/m3-school', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/study/m3-school', $this);
+			}
+
+			//$this->render('data/study/m3-school', $this);
 		}
 	}
 
