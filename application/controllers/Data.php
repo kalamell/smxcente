@@ -1654,34 +1654,140 @@ class Data extends Base {
 			
 		if ($type == 'age-7-amphur') {
 
-			$this->render('data/forecast/age-7-amphur', $this);
-		} else if ($type == 'age-7-district') {
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/forecast/age-7-amphur', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/forecast/age-7-amphur', $this);
+			}
 
-			$this->render('data/forecast/age-7-district', $this);
+
+			//$this->render('data/forecast/age-7-amphur', $this);
+
+
+		} else if ($type == 'age-7-district') {
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/forecast/age-7-district', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/forecast/age-7-district', $this);
+			}
+			//$this->render('data/forecast/age-7-district', $this);
 		} else if ($type == 'a1-amphur') {
-			$this->render('data/forecast/a1-amphur', $this);
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/forecast/a1-amphur', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/forecast/a1-amphur', $this);
+			}
+			//$this->render('data/forecast/a1-amphur', $this);
 		} else if ($type == 'a1-district') {
-			$this->render('data/forecast/a1-district', $this);
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/forecast/a1-district', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/forecast/a1-district', $this);
+			}
+
+			//$this->render('data/forecast/a1-district', $this);
 		} else if ($type == 'a1-school') {
-			$this->render('data/forecast/a1-school', $this);
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/forecast/a1-school', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/forecast/a1-school', $this);
+			}
+			//$this->render('data/forecast/a1-school', $this);
 		} else if ($type == 'a12-amphur') {
-			$this->render('data/forecast/a12-amphur', $this);
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/forecast/a12-amphur', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/forecast/a12-amphur', $this);
+			}
+			//$this->render('data/forecast/a12-amphur', $this);
 		} else if ($type == 'a12-district') {
-			$this->render('data/forecast/a12-district', $this);
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/forecast/a12-district', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/forecast/a12-district', $this);
+			}
+			//$this->render('data/forecast/a12-district', $this);
 		} else if ($type == 'a12-school') {
-			$this->render('data/forecast/a12-school', $this);
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/forecast/a12-school', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/forecast/a12-school', $this);
+			}
+			//$this->render('data/forecast/a12-school', $this);
 		} else if ($type == 'a23-amphur') {
-			$this->render('data/forecast/a23-amphur', $this);
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/forecast/a23-amphur', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/forecast/a23-amphur', $this);
+			}
+			//$this->render('data/forecast/a23-amphur', $this);
 		} else if ($type == 'a23-district') {
-			$this->render('data/forecast/a23-district', $this);
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/forecast/a23-district', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/forecast/a23-district', $this);
+			}
+			//$this->render('data/forecast/a23-district', $this);
 		} else if ($type == 'a23-school') {
-			$this->render('data/forecast/a23-school', $this);
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/forecast/a23-school', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/forecast/a23-school', $this);
+			}
+			//$this->render('data/forecast/a23-school', $this);
 		} else if ($type == 'p1-amphur') {
-			$this->render('data/forecast/p1-amphur', $this);
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/forecast/p1-amphur', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/forecast/p1-amphur', $this);
+			}
+			//$this->render('data/forecast/p1-amphur', $this);
 		} else if ($type == 'p1-district') {
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/forecast/p1-district', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/forecast/p1-district', $this);
+			}
+
 			$this->render('data/forecast/p1-district', $this);
 		} else if ($type == 'p1-school') {
-			$this->render('data/forecast/p1-school', $this);
+
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/forecast/p1-school', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/forecast/p1-school', $this);
+			}
+
+
+			//$this->render('data/forecast/p1-school', $this);
 		}
 	}
 
