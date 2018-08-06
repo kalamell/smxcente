@@ -5,12 +5,15 @@
 	<meta charset="utf-8">
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<title><?php echo getTitle();?></title>
+	<?php if ($export != 1):?>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/main.css">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/js/datetimepicker/bootstrap-datetimepicker.min.css">
-
+<?php else:?>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/bootstrap-pdf.css">
+	<?php endif;?>
 	<style type="text/css">
 		@media (max-width: 768px) { 
 			.navbar-brand { width: 50%; }
@@ -22,6 +25,33 @@
 				width: 900px;
 			}
 		}
+
+		<?php if ($export == 1):?>
+		body nav, footer, ol.breadcrumb{ display: none;}
+		.container-fluid{
+					font-family: "Garuda";
+					font-size: 12pt;
+			}
+
+			th, td {
+					font-family: "Garuda";
+			}
+
+			td, th { padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;}
+
+		.table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+    border-bottom-width: 2px;
+}
+
+.table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+    border: 1px solid #ddd;
+}
+
+
+		<?php endif;?>
 	</style>
 </head>
 <body>

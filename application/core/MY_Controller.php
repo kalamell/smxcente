@@ -28,11 +28,17 @@ class Base extends CI_Controller {
 		$this->area_type_id = $member->area_type_id;
 	}
 
-	protected function render($view, $data = array()) 
+	protected function render($view, $data = array(), $return = false) 
 	{
-		$this->load->view('header', $data);
-		$this->load->view($view, $data);
-		$this->load->view('footer', $data);
+		if (!$return) {
+			$this->load->view('header', $data);
+			$this->load->view($view, $data);
+			$this->load->view('footer', $data);
+		} else {
+			$html = $this->load->view('header', $data, true);
+			$html.=$this->load->view($view, $data, true);
+			return $html;
+		}
 	}
 
 	private function updateField()

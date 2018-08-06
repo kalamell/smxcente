@@ -226,7 +226,13 @@ class Data extends Base {
 			$this->area = $this->db->select('area_type.area_type_id, area_type.area_type_name')
 				->where('province_id', $this->province_id)->get('area_type')->result();
 
-			$this->render('data/school/amphur', $this);
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/school/amphur', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/school/amphur', $this);
+			}
 
 		} else if ($type == 'district') {
 			$this->amphur = $this->db->where('PROVINCE_ID', $this->province_id)->get('amphur')->result();
@@ -236,7 +242,8 @@ class Data extends Base {
 				->where('province_id', $this->province_id)->get('area_type')->result();
 
 			if ($this->input->get('export')) {
-				$html = $this->load->view('data/school/report/district', $this, true);
+				$this->export = 1;
+				$html = $this->render('data/school/district', $this, true);
 				$this->export_pdf($html);
 			} else {
 				$this->render('data/school/district', $this);
@@ -271,7 +278,15 @@ class Data extends Base {
 								),
 								*/
 							);
-			$this->render('data/school/level-amphur', $this);
+
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/school/level-amphur', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/school/level-amphur', $this);
+			}
+
 
 		} else if ($type == 'level-district') {
 			$this->amphur = $this->db->where('PROVINCE_ID', $this->province_id)->get('amphur')->result();
@@ -300,7 +315,13 @@ class Data extends Base {
 								),
 								*/
 							);
-			$this->render('data/school/level-district', $this);
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/school/level-district', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/school/level-district', $this);
+			}
 		} else if ($type == 'spt-amphur') {
 			
 			$this->amphur = $this->db->where('PROVINCE_ID', $this->province_id)->get('amphur')->result();
@@ -317,7 +338,15 @@ class Data extends Base {
 								),
 								
 							);
-			$this->render('data/school/spt-amphur', $this);
+
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/school/spt-amphur', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/school/spt-amphur', $this);
+			}
+
 
 		} else if ($type == 'spt-district') {
 			$this->amphur = $this->db->where('PROVINCE_ID', $this->province_id)->get('amphur')->result();
@@ -333,7 +362,18 @@ class Data extends Base {
 								),
 								
 							);
-			$this->render('data/school/spt-district', $this);
+			
+
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/school/spt-district', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/school/spt-district', $this);
+			}
+
+			
+			//$this->render('data/school/spt-district', $this);
 		} else if ($type == 'room-amphur') {
 			$this->amphur = $this->db->where('PROVINCE_ID', $this->province_id)->get('amphur')->result();
 			$this->district = $this->db->where('PROVINCE_ID', $this->province_id)->get('district')->result();
@@ -390,7 +430,18 @@ class Data extends Base {
 								),
 								
 							);
-			$this->render('data/school/room-amphur', $this);
+
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/school/room-amphur', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/school/room-amphur', $this);
+			}
+
+			
+			
+			//$this->render('data/school/room-amphur', $this);
 
 		} else if ($type == 'room-district') {
 			$this->amphur = $this->db->where('PROVINCE_ID', $this->province_id)->get('amphur')->result();
@@ -446,7 +497,17 @@ class Data extends Base {
 						'level_name' => 'ม.3'
 					),
 				);
-			$this->render('data/school/room-district', $this);
+			
+				if ($this->input->get('export')) {
+					$this->export = 1;
+					$html = $this->render('data/school/room-district', $this, true);
+					$this->export_pdf($html);
+				} else {
+					$this->render('data/school/room-district', $this);
+				}
+
+				
+			//$this->render('data/school/room-district', $this);
 		}
 	}
 
