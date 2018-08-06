@@ -519,15 +519,33 @@ class Data extends Base {
 
 			$this->area = $this->db->select('area_type.area_type_id, area_type.area_type_name')
 				->where('province_id', $this->province_id)->get('area_type')->result();
+		
+				if ($this->input->get('export')) {
+					$this->export = 1;
+					$html = $this->render('data/student/amphur', $this, true);
+					$this->export_pdf($html);
+				} else {
+					$this->render('data/student/amphur', $this);
+				}
 
-			$this->render('data/student/amphur', $this);
+
+			//$this->render('data/student/amphur', $this);
 		} else if ($type == 'district') {
 			$this->amphur = $this->db->where('PROVINCE_ID', $this->province_id)->get('amphur')->result();
 			$this->district = $this->db->where('PROVINCE_ID', $this->province_id)->get('district')->result();
 			$this->area = $this->db->select('area_type.area_type_id, area_type.area_type_name')
 				->where('province_id', $this->province_id)->get('area_type')->result();
+			
+				if ($this->input->get('export')) {
+					$this->export = 1;
+					$html = $this->render('data/student/district', $this, true);
+					$this->export_pdf($html);
+				} else {
+					$this->render('data/student/district', $this);
+				}
 
-			$this->render('data/student/district', $this);
+
+			//$this->render('data/student/district', $this);
 		}  else if ($type == 'level-amphur') {
 			$this->amphur = $this->db->where('PROVINCE_ID', $this->province_id)->get('amphur')->result();
 			$this->district = $this->db->where('PROVINCE_ID', $this->province_id)->get('district')->result();
@@ -556,7 +574,15 @@ class Data extends Base {
 								),
 								*/
 							);
-			$this->render('data/student/level-amphur', $this);
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/student/level-amphur', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/student/level-amphur', $this);
+			}
+			
+			//$this->render('data/student/level-amphur', $this);
 
 		} else if ($type == 'level-district') {
 			$this->amphur = $this->db->where('PROVINCE_ID', $this->province_id)->get('amphur')->result();
@@ -585,7 +611,15 @@ class Data extends Base {
 								),
 								*/
 							);
-			$this->render('data/student/level-district', $this);
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/student/level-district', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/student/level-district', $this);
+			}
+			
+			//$this->render('data/student/level-district', $this);
 		} else if ($type == 'spt-amphur') {
 			
 			$this->amphur = $this->db->where('PROVINCE_ID', $this->province_id)->get('amphur')->result();
@@ -602,7 +636,16 @@ class Data extends Base {
 								),
 								
 							);
-			$this->render('data/student/spt-amphur', $this);
+							if ($this->input->get('export')) {
+								$this->export = 1;
+								$html = $this->render('data/student/spt-amphur', $this, true);
+								$this->export_pdf($html);
+							} else {
+								$this->render('data/student/spt-amphur', $this);
+							}
+
+
+							//$this->render('data/student/spt-amphur', $this);
 
 		} else if ($type == 'spt-district') {
 			$this->amphur = $this->db->where('PROVINCE_ID', $this->province_id)->get('amphur')->result();
@@ -618,7 +661,15 @@ class Data extends Base {
 								),
 								
 							);
-			$this->render('data/student/spt-district', $this);
+							if ($this->input->get('export')) {
+								$this->export = 1;
+								$html = $this->render('data/student/spt-district', $this, true);
+								$this->export_pdf($html);
+							} else {
+								$this->render('data/student/spt-district', $this);
+							}
+
+							//$this->render('data/student/spt-district', $this);
 			
 		}  else if ($type == 'room-amphur') {
 			$this->amphur = $this->db->where('PROVINCE_ID', $this->province_id)->get('amphur')->result();
@@ -676,7 +727,17 @@ class Data extends Base {
 								),
 								
 							);
-			$this->render('data/student/room-amphur', $this);
+							
+							if ($this->input->get('export')) {
+								$this->export = 1;
+								$html = $this->render('data/student/room-amphur', $this, true);
+								$this->export_pdf($html);
+							} else {
+								$this->render('data/student/room-amphur', $this);
+							}
+
+
+			//$this->render('data/student/room-amphur', $this);
 
 		} else if ($type == 'room-district') {
 			$this->amphur = $this->db->where('PROVINCE_ID', $this->province_id)->get('amphur')->result();
@@ -732,7 +793,17 @@ class Data extends Base {
 						'level_name' => 'ม.3'
 					),
 				);
-			$this->render('data/student/room-district', $this);
+
+				if ($this->input->get('export')) {
+					$this->export = 1;
+					$html = $this->render('data/student/room-district', $this, true);
+					$this->export_pdf($html);
+				} else {
+					$this->render('data/student/room-district', $this);
+				}
+
+
+			//$this->render('data/student/room-district', $this);
 		} else if ($type == 'room-spt-amphur') {
 			
 			$this->amphur = $this->db->where('PROVINCE_ID', $this->province_id)->get('amphur')->result();
@@ -802,7 +873,17 @@ class Data extends Base {
 								),
 								
 							);
-			$this->render('data/student/room-spt-amphur', $this);
+
+							if ($this->input->get('export')) {
+								$this->export = 1;
+								$html = $this->render('data/student/room-spt-amphur', $this, true);
+								$this->export_pdf($html);
+							} else {
+								$this->render('data/student/room-spt-amphur', $this);
+							}
+
+
+			//$this->render('data/student/room-spt-amphur', $this);
 
 		} else if ($type == 'room-spt-district') {
 			$this->amphur = $this->db->where('PROVINCE_ID', $this->province_id)->get('amphur')->result();
@@ -871,7 +952,17 @@ class Data extends Base {
 								
 							);
 
-			$this->render('data/student/room-spt-district', $this);
+							if ($this->input->get('export')) {
+								$this->export = 1;
+								$html = $this->render('data/student/room-spt-district', $this, true);
+								$this->export_pdf($html);
+							} else {
+								$this->render('data/student/room-spt-district', $this);
+							}
+
+
+
+			//$this->render('data/student/room-spt-district', $this);
 		} if ($type == 'percentage-amphur') {
 			$this->amphur = $this->db->where('PROVINCE_ID', $this->province_id)->get('amphur')->result();
 			$this->district = $this->db->where('PROVINCE_ID', $this->province_id)->get('district')->result();
@@ -879,7 +970,17 @@ class Data extends Base {
 				->where('school.province_id', $this->province_id)->group_by('area.area_code')->get('area')->result();
 				$this->all_total = get3to5All($this->province_id);
 
-			$this->render('data/student/percentage-amphur', $this);
+				if ($this->input->get('export')) {
+					$this->export = 1;
+					$html = $this->render('data/student/percentage-amphur', $this, true);
+					$this->export_pdf($html);
+				} else {
+					$this->render('data/student/percentage-amphur', $this);
+				}
+
+
+
+			//$this->render('data/student/percentage-amphur', $this);
 		} else if ($type == 'percentage-district') {
 			$this->amphur = $this->db->where('PROVINCE_ID', $this->province_id)->get('amphur')->result();
 			$this->district = $this->db->where('PROVINCE_ID', $this->province_id)->get('district')->result();
@@ -888,12 +989,32 @@ class Data extends Base {
 
 			$this->all_total = get3to5All($this->province_id);
 
-			$this->render('data/student/percentage-district', $this);
+
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/student/percentage-district', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/student/percentage-district', $this);
+			}
+
+
+
+			//$this->render('data/student/percentage-district', $this);
 		} else if ($type == 'total-room') {
 			$this->amphur = $this->db->where('PROVINCE_ID', $this->province_id)->get('amphur')->result();
 			$this->district = $this->db->where('PROVINCE_ID', $this->province_id)->get('district')->result();
+
+
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/student/total-room', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/student/total-room', $this);
+			}
 			
-			$this->render('data/student/total-room', $this);
+			//$this->render('data/student/total-room', $this);
 		} 
 	}
 
@@ -904,14 +1025,32 @@ class Data extends Base {
 			$this->district = $this->db->where('PROVINCE_ID', $this->province_id)->get('district')->result();
 			$this->area = $this->db->where('province_id', $this->province_id)->get('area_type')->result();
 
-			$this->render('data/teacher/amphur', $this);
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/teacher/amphur', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/teacher/amphur', $this);
+			}
+
+
+			//$this->render('data/teacher/amphur', $this);
 			
 		} else if ($type == 'district') {
 			$this->amphur = $this->db->where('PROVINCE_ID', $this->province_id)->get('amphur')->result();
 			$this->district = $this->db->where('PROVINCE_ID', $this->province_id)->get('district')->result();
 			$this->area = $this->db->where('province_id', $this->province_id)->get('area_type')->result();
 
-			$this->render('data/teacher/district', $this);
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/teacher/district', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/teacher/district', $this);
+			}
+
+			
+			//$this->render('data/teacher/district', $this);
 		} else if ($type == 'spt-amphur') {
 			$this->amphur = $this->db->where('PROVINCE_ID', $this->province_id)->get('amphur')->result();
 			$this->district = $this->db->where('PROVINCE_ID', $this->province_id)->get('district')->result();
@@ -930,7 +1069,15 @@ class Data extends Base {
 								
 							);
 
-			$this->render('data/teacher/spt-amphur', $this);
+							if ($this->input->get('export')) {
+								$this->export = 1;
+								$html = $this->render('data/teacher/spt-amphur', $this, true);
+								$this->export_pdf($html);
+							} else {
+								$this->render('data/teacher/spt-amphur', $this);
+							}
+
+			//$this->render('data/teacher/spt-amphur', $this);
 		} else if ($type == 'spt-district') {
 			$this->amphur = $this->db->where('PROVINCE_ID', $this->province_id)->get('amphur')->result();
 			$this->district = $this->db->where('PROVINCE_ID', $this->province_id)->get('district')->result();
@@ -948,7 +1095,16 @@ class Data extends Base {
 								),
 								
 							);
-			$this->render('data/teacher/spt-district', $this);
+
+							if ($this->input->get('export')) {
+								$this->export = 1;
+								$html = $this->render('data/teacher/spt-district', $this, true);
+								$this->export_pdf($html);
+							} else {
+								$this->render('data/teacher/spt-district', $this);
+							}
+
+			//$this->render('data/teacher/spt-district', $this);
 		} else if ($type == 'teacher-per-student-amphur') {
 			$this->amphur = $this->db->where('PROVINCE_ID', $this->province_id)->get('amphur')->result();
 			$this->district = $this->db->where('PROVINCE_ID', $this->province_id)->get('district')->result();
@@ -967,7 +1123,15 @@ class Data extends Base {
 								
 							);
 
-			$this->render('data/teacher/teacher-per-amphur', $this);
+							if ($this->input->get('export')) {
+								$this->export = 1;
+								$html = $this->render('data/teacher/teacher-per-amphur', $this, true);
+								$this->export_pdf($html);
+							} else {
+								$this->render('data/teacher/teacher-per-amphur', $this);
+							}
+
+			//$this->render('data/teacher/teacher-per-amphur', $this);
 
 		} else if ($type == 'teacher-per-student-district') {
 
@@ -987,7 +1151,16 @@ class Data extends Base {
 								),
 								
 							);
-			$this->render('data/teacher/teacher-per-district', $this);
+
+							if ($this->input->get('export')) {
+								$this->export = 1;
+								$html = $this->render('data/teacher/teacher-per-district', $this, true);
+								$this->export_pdf($html);
+							} else {
+								$this->render('data/teacher/teacher-per-district', $this);
+							}
+
+			//$this->render('data/teacher/teacher-per-district', $this);
 
 			
 		} else if ($type == 'teacher-per-dep-amphur') {
@@ -1008,7 +1181,17 @@ class Data extends Base {
 								),
 							);
 
-			$this->render('data/teacher/teacher-per-dep-amphur', $this);
+							if ($this->input->get('export')) {
+								$this->export = 1;
+								$html = $this->render('data/teacher/teacher-per-dep-amphur', $this, true);
+								$this->export_pdf($html);
+							} else {
+								$this->render('data/teacher/teacher-per-dep-amphur', $this);
+							}
+
+
+
+			//$this->render('data/teacher/teacher-per-dep-amphur', $this);
 
 		} else if ($type == 'teacher-per-dep-district') {
 
@@ -1027,7 +1210,15 @@ class Data extends Base {
 								),
 							);
 
-			$this->render('data/teacher/teacher-per-dep-district', $this);
+							if ($this->input->get('export')) {
+								$this->export = 1;
+								$html = $this->render('data/teacher/teacher-per-dep-district', $this, true);
+								$this->export_pdf($html);
+							} else {
+								$this->render('data/teacher/teacher-per-dep-district', $this);
+							}
+
+			//$this->render('data/teacher/teacher-per-dep-district', $this);
 		} else if ($type == 'education') {
 
 			$this->amphur = $this->db->where('PROVINCE_ID', $this->province_id)->get('amphur')->result();
@@ -1084,9 +1275,20 @@ class Data extends Base {
 								),
 								
 							);
+
+							
 			$this->educations = $this->db->get('edu')->result();
 
-			$this->render('data/teacher/education', $this);
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/teacher/education', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/teacher/education', $this);
+			}
+
+
+			//$this->render('data/teacher/education', $this);
 		} else if ($type == 'academic-standing') {
 			$this->amphur = $this->db->where('PROVINCE_ID', $this->province_id)->get('amphur')->result();
 			$this->district = $this->db->where('PROVINCE_ID', $this->province_id)->get('district')->result();
@@ -1144,7 +1346,17 @@ class Data extends Base {
 							);
 			$this->academic = $this->db->get('academic_standing')->result();
 
-			$this->render('data/teacher/academic', $this);
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/teacher/academic', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/teacher/academic', $this);
+			}
+
+
+
+			//$this->render('data/teacher/academic', $this);
 		}  else if ($type == 'age') {
 			$this->amphur = $this->db->where('PROVINCE_ID', $this->province_id)->get('amphur')->result();
 			$this->district = $this->db->where('PROVINCE_ID', $this->province_id)->get('district')->result();
@@ -1224,7 +1436,15 @@ class Data extends Base {
 				), 
 			);
 
-			$this->render('data/teacher/age', $this);
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/teacher/age', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/teacher/age', $this);
+			}
+
+			//$this->render('data/teacher/age', $this);
 		} else if ($type == 'total-teach') {
 			$this->amphur = $this->db->where('PROVINCE_ID', $this->province_id)->get('amphur')->result();
 			$this->district = $this->db->where('PROVINCE_ID', $this->province_id)->get('district')->result();
@@ -1281,8 +1501,17 @@ class Data extends Base {
 								
 							);
 			$this->area = $this->db->where('province_id', $this->province_id)->get('area_type')->result();
+			
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/teacher/total-teach', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/teacher/total-teach', $this);
+			}
 
-			$this->render('data/teacher/total-teach', $this);
+
+			//$this->render('data/teacher/total-teach', $this);
 		} else if ($type == 'cert') {
 			$this->amphur = $this->db->where('PROVINCE_ID', $this->province_id)->get('amphur')->result();
 			$this->district = $this->db->where('PROVINCE_ID', $this->province_id)->get('district')->result();
@@ -1349,26 +1578,63 @@ class Data extends Base {
 					'name' => 'ครูพี่เลี้ยง'
 				),
 			);
-			$this->render('data/teacher/cert', $this);
+
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/teacher/cert', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/teacher/cert', $this);
+			}
+
+			//$this->render('data/teacher/cert', $this);
 		} else if ($type == 'lack-amphur') {
 			$this->amphur = $this->db->where('PROVINCE_ID', $this->province_id)->get('amphur')->result();
 			$this->district = $this->db->where('PROVINCE_ID', $this->province_id)->get('district')->result();
 			$this->area = $this->db->select('area.area_code, area.area_code_name')->join('school', 'area.area_code = school.area_id')
 				->where('school.province_id', $this->province_id)->group_by('area.area_code')->get('area')->result();
-			$this->render('data/teacher/lack-amphur', $this);
+			
+
+				if ($this->input->get('export')) {
+					$this->export = 1;
+					$html = $this->render('data/teacher/lack-amphur', $this, true);
+					$this->export_pdf($html);
+				} else {
+					$this->render('data/teacher/lack-amphur', $this);
+				}
+
+			//$this->render('data/teacher/lack-amphur', $this);
 		} else if ($type == 'lack-district') {
 			$this->amphur = $this->db->where('PROVINCE_ID', $this->province_id)->get('amphur')->result();
 			$this->district = $this->db->where('PROVINCE_ID', $this->province_id)->get('district')->result();
 			$this->area = $this->db->select('area.area_code, area.area_code_name')->join('school', 'area.area_code = school.area_id')
 				->where('school.province_id', $this->province_id)->group_by('area.area_code')->get('area')->result();
 
-			$this->render('data/teacher/lack-district', $this);
+				if ($this->input->get('export')) {
+					$this->export = 1;
+					$html = $this->render('data/teacher/lack-district', $this, true);
+					$this->export_pdf($html);
+				} else {
+					$this->render('data/teacher/lack-district', $this);
+				}
+
+			//$this->render('data/teacher/lack-district', $this);
 		} else if ($type == 'lack-school') {
 			$this->amphur = $this->db->where('PROVINCE_ID', $this->province_id)->get('amphur')->result();
 			$this->district = $this->db->where('PROVINCE_ID', $this->province_id)->get('district')->result();
 			$this->area = $this->db->select('area.area_code, area.area_code_name')->join('school', 'area.area_code = school.area_id')
 				->where('school.province_id', $this->province_id)->group_by('area.area_code')->get('area')->result();
-			$this->render('data/teacher/lack-school', $this);
+			
+				if ($this->input->get('export')) {
+					$this->export = 1;
+					$html = $this->render('data/teacher/lack-school', $this, true);
+					$this->export_pdf($html);
+				} else {
+					$this->render('data/teacher/lack-school', $this);
+				}
+
+
+			//$this->render('data/teacher/lack-school', $this);
 		}
 	}
 
