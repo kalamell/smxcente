@@ -2015,7 +2015,16 @@ class Data extends Base {
 		
 			
 		if ($type == 'school') {
-			$this->render('data/area/school', $this);
+
+			if ($this->input->get('export')) {
+				$this->export = 1;
+				$html = $this->render('data/area/school', $this, true);
+				$this->export_pdf($html);
+			} else {
+				$this->render('data/area/school', $this);
+			}
+
+			//$this->render('data/area/school', $this);
 
 		} else if ($type == 'map') {
 			$this->area = $this->db->select('area_type.area_type_id, area_type.area_type_name')
